@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
@@ -88,6 +88,26 @@ namespace WpfApplication3.Controller
             }
             return attendance;
         }
+        
+        public List<Emp_Attendance> getAllAttendanceforDate(DateTime date){
+            List<Emp_Attendance> attendaceList = null;
+            try
+            {
+                using (var db = new PayrollModel())
+                {
+
+                    attendaceList = db.Emp_Attendance.Where(employee=>employee.Atten_Date==date);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("find employee Type" + ex.InnerException);
+            }
+            
+            return attendaceList;
+            
+        }
 
         public Emp_Attendance findEmployeeAtendanceByEmployeeID(int employeeId)
         {
@@ -130,5 +150,6 @@ namespace WpfApplication3.Controller
             }
             return status;
         }
+        
     }
 }
