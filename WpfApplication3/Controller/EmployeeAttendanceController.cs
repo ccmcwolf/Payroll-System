@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 ﻿using payroll;
+=======
+>>>>>>> 56ab605f72c03e0e5682495065ff9c80b9bde818
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
@@ -89,6 +92,26 @@ namespace WpfApplication3.Controller
             }
             return attendance;
         }
+        
+        public List<Emp_Attendance> getAllAttendanceforDate(DateTime date){
+            List<Emp_Attendance> attendaceList = null;
+            try
+            {
+                using (var db = new PayrollModel())
+                {
+
+                    attendaceList = db.Emp_Attendance.Where(employee=>employee.Atten_Date==date);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("find employee Type" + ex.InnerException);
+            }
+            
+            return attendaceList;
+            
+        }
 
         public Emp_Attendance findEmployeeAtendanceByEmployeeID(int employeeId)
         {
@@ -131,9 +154,13 @@ namespace WpfApplication3.Controller
             }
             return status;
         }
+<<<<<<< HEAD
 
 
 
 
+=======
+        
+>>>>>>> 56ab605f72c03e0e5682495065ff9c80b9bde818
     }
 }
