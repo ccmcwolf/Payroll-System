@@ -66,9 +66,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controller\DepartmentController.cs" />
+    <Compile Include="Controller\EmpExtraWorkController.cs" />
     <Compile Include="Controller\EmployeeAttendanceController.cs" />
     <Compile Include="Controller\EmployeeController.cs" />
     <Compile Include="Controller\EmployeeTypeController.cs" />
+    <Compile Include="Controller\PaymentController.cs" />
+    <Compile Include="Model\Emp_Extra_Work.cs" />
     <Compile Include="Model\Trans_Job_Assignment.cs" />
     <Compile Include="Model\User.cs" />
     <Page Include="MainWindow.xaml">
@@ -84,14 +88,12 @@
     <Compile Include="Model\EmployeeTest.cs" />
     <Compile Include="Model\Employee_Type.cs" />
     <Compile Include="Model\Emp_Attendance.cs" />
-    <Compile Include="Model\Emp_Extra_Work.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Payment.cs" />
     <Compile Include="Model\Payment_Catagory.cs" />
     <Compile Include="Model\Payment_Sub_Catagory.cs" />
     <Compile Include="Model\PayrollModel.cs" />
@@ -102,6 +104,7 @@
     <Compile Include="Model\Payroll_Monthly_Allowances_Transaction.cs" />
     <Compile Include="Model\Payroll_Monthly_Deduction_Transaction.cs" />
     <Compile Include="Model\Payroll_Monthly_Salary_Process_Detail.cs" />
+    <Compile Include="Model\Payment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

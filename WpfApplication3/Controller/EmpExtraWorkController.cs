@@ -1,17 +1,15 @@
-﻿using payroll;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfApplication3.Controller
+namespace payroll.Controller
 {
-    class EmployeeController
+    class EmpExtraWorkController
     {
-
-        public Boolean addEmployee(Employee employee)
+        public Boolean addExtraWork(Emp_Extra_Work extrawork)
         {
             Boolean status = false;
             try
@@ -19,7 +17,7 @@ namespace WpfApplication3.Controller
                 using (var db = new PayrollModel())
                 {
 
-                    db.Employees.Add(employee);
+                    db.Emp_Extra_Work.Add(extrawork);
                     db.SaveChanges();
                     status = true;
 
@@ -32,15 +30,15 @@ namespace WpfApplication3.Controller
             return status;
         }
 
-        public Boolean updateEmployee(Employee employee)
+        public Boolean updateEmpExtraWork(Emp_Extra_Work extrawork)
         {
             Boolean status = false;
             try
             {
                 using (var db = new PayrollModel())
                 {
-                    Console.WriteLine("Employee detail updated");
-                    db.Employees.AddOrUpdate(employee);
+                    Console.WriteLine("Employee Extrawork updated");
+                    db.Emp_Extra_Work.AddOrUpdate(extrawork);
                     db.SaveChanges();
                     status = true;
 
@@ -53,23 +51,44 @@ namespace WpfApplication3.Controller
             return status;
         }
 
-        public Employee findByEmployeeId(int employeeId)
+        public Emp_Extra_Work findByEmployeeExtraWorkByID(int employeeId)
         {
-            Employee employee = null;
+            Emp_Extra_Work emp_extrawork = null;
             try
             {
                 using (var db = new PayrollModel())
                 {
 
-                    employee = db.Employees.Find(employeeId);
+                    emp_extrawork = db.Emp_Extra_Work.Find(employeeId);
 
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("find employee" + ex.InnerException);
+                Console.WriteLine("find extra work error" + ex.InnerException);
             }
-            return employee;
+            return emp_extrawork;
+        }
+
+        //send month as int from DateTime.Month
+        public List<Emp_Extra_Work> getExtraWorkForMonth(int employeeId,int month)
+        {
+            List<Emp_Extra_Work> emp_extraworks = null;
+            
+            try
+            {
+                using (var db = new PayrollModel())
+                {
+                    
+                    emp_extraworks = db.Emp_Extra_Work.Where(extra => extra.Employee_ID ==employeeId && month == extra.Work_Date.Month).ToList();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("find extra work error" + ex.InnerException);
+            }
+            return emp_extraworks;
         }
 
         public Boolean deleteMemberbyId(int id)
@@ -93,24 +112,6 @@ namespace WpfApplication3.Controller
                 Console.WriteLine("delete employee " + ex.InnerException);
             }
             return status;
-        }
-
-        public List<Employee> loadallEmployees() {
-            List<Employee> employees = null; 
-            try
-            {
-                using (var db = new PayrollModel())
-                {
-                    employees = db.Set<Employee>().ToList();
-                    
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("findall employee error " + ex.InnerException);
-            }
-            return employees;
-
         }
 
     }

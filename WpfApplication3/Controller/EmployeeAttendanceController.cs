@@ -1,7 +1,7 @@
-<<<<<<< HEAD
+
 ﻿using payroll;
-=======
->>>>>>> 56ab605f72c03e0e5682495065ff9c80b9bde818
+
+
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
@@ -74,6 +74,7 @@ namespace WpfApplication3.Controller
             return attendance;
         }
 
+        
         public Emp_Attendance findEmployeeAttendanceByDate(DateTime date)
         {
             Emp_Attendance attendance = null;
@@ -82,7 +83,7 @@ namespace WpfApplication3.Controller
                 using (var db = new PayrollModel())
                 {
 
-                    attendance = db.Emp_Attendance.Where(employee=>employee.Atten_Date==date).First();
+                    attendance = db.Emp_Attendance.Where(employee => employee.Atten_Date == date).First();
 
                 }
             }
@@ -92,15 +93,16 @@ namespace WpfApplication3.Controller
             }
             return attendance;
         }
-        
-        public List<Emp_Attendance> getAllAttendanceforDate(DateTime date){
+
+        public List<Emp_Attendance> getAllAttendanceforDate(DateTime date)
+        {
             List<Emp_Attendance> attendaceList = null;
             try
             {
                 using (var db = new PayrollModel())
                 {
 
-                    attendaceList = db.Emp_Attendance.Where(employee=>employee.Atten_Date==date);
+                    attendaceList = db.Emp_Attendance.Where(employee => employee.Atten_Date == date).ToList();
 
                 }
             }
@@ -108,9 +110,9 @@ namespace WpfApplication3.Controller
             {
                 Console.WriteLine("find employee Type" + ex.InnerException);
             }
-            
+
             return attendaceList;
-            
+
         }
 
         public Emp_Attendance findEmployeeAtendanceByEmployeeID(int employeeId)
@@ -132,7 +134,7 @@ namespace WpfApplication3.Controller
             return attendance;
         }
 
-        public Boolean deleteAttendance(int id,DateTime date)
+        public Boolean deleteAttendance(int id, DateTime date)
         {
             Boolean status = false;
 
@@ -140,7 +142,7 @@ namespace WpfApplication3.Controller
             {
                 using (var db = new PayrollModel())
                 {
-                    Emp_Attendance attendance = db.Emp_Attendance.First(b => b.Employee_ID==id & b.Atten_Date==date);
+                    Emp_Attendance attendance = db.Emp_Attendance.First(b => b.Employee_ID == id & b.Atten_Date == date);
 
                     db.Emp_Attendance.Remove(attendance);
                     db.SaveChanges();
@@ -154,13 +156,25 @@ namespace WpfApplication3.Controller
             }
             return status;
         }
-<<<<<<< HEAD
 
+        public List<Emp_Attendance> loadallAttendance()
+        {
+            List<Emp_Attendance> attendances = null;
+            try
+            {
+                using (var db = new PayrollModel())
+                {
+                    attendances = db.Set<Emp_Attendance>().ToList();
 
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("load attendance error " + ex.InnerException);
+            }
+            return attendances;
 
+        }
 
-=======
-        
->>>>>>> 56ab605f72c03e0e5682495065ff9c80b9bde818
     }
 }

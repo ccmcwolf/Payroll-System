@@ -38,5 +38,9 @@ namespace payroll
 
         [StringLength(1)]
         public string Delete_Flag { get; set; }
+
+        public int employeeid { get; set; }
+
+        public DateTime payementmonth { get; set; }
     }
 }

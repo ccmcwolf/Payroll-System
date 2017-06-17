@@ -1,5 +1,6 @@
-// A Hello World! program in C#.
 
+
+using payroll;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
@@ -53,43 +54,64 @@ namespace  WpfApplication3.Controller
             return status;
         }
         
-        public Department_Master findByDepartment_Master(int departmentID)
+        public Payment findByPaymentID(int id)
         {
-            Department_Master department = null;
+            Payment payment= null;
             try
             {
                 using (var db = new PayrollModel())
                 {
 
-                    department = db.Department_Master.Find(departmentID);
+                    payment = db.Payments.Find(id);
 
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("find Department Error" + ex.InnerException);
+                Console.WriteLine("find Payment Error" + ex.InnerException);
             }
-            return employee;
+            return payment;
         }
-        
-         public List<Department_Master> loadAllDepartments()
+
+        public List<Payment> findPaymentforEmployee(int employeeid)
         {
-            List<Department_Master> departments = null;
+            List<Payment> payments = null;
+            try
+            {
+                using (var db = new PayrollModel())
+                {
+
+                    payments = db.Payments.Where(payment => payment.employeeid == employeeid ).ToList();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("find Payment Error" + ex.InnerException);
+            }
+            return payments;
+        }
+
+
+
+        public List<Payment> loadAllPayments()
+        {
+            List<Payment> payments= null;
 
             try
             {
                 using (var db = new PayrollModel())
                 {
 
-                    departments = db.Set<Department_Master>().ToList();
+                    payments  = db.Set<Payment>().ToList();
 
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Load all departments error"+ex.InnerException);
+                Console.WriteLine("Load all payments error"+ex.InnerException);
             }
-            return employees;
+            return payments;
         }
         
         

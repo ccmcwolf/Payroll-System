@@ -1,5 +1,6 @@
 // A Hello World! program in C#.
 
+using payroll;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
@@ -52,7 +53,48 @@ namespace  WpfApplication3.Controller
             }
             return status;
         }
-        
-        
+
+        public List<Department_Master> loadallDepartments()
+        {
+            List<Department_Master> departments= null;
+            try
+            {
+                using (var db = new PayrollModel())
+                {
+                    departments  = db.Set<Department_Master>().ToList();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("load departments error " + ex.InnerException);
+            }
+            return departments;
+
+        }
+
+
+        public Boolean deleteDepartmentbyId(int id)
+        {
+            Boolean status = false;
+
+            try
+            {
+                using (var db = new PayrollModel())
+                {
+                    Department_Master department = db.Department_Master.First(b => b.Department_ID == id);
+
+                    db.Department_Master.Remove(department);
+                    db.SaveChanges();
+                    status = true;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("delete department error " + ex.InnerException);
+            }
+            return status;
+        }
     }
 }

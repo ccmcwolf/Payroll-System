@@ -93,5 +93,25 @@ namespace WpfApplication3.Controller
             }
             return status;
         }
+
+        public List<Employee_Type> loadallEmployeeTypes()
+        {
+            List<Employee_Type> allEmpTypes = null;
+            try
+            {
+                using (var db = new PayrollModel())
+                {
+                    allEmpTypes  = db.Set<Employee_Type>().ToList();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("load all types error " + ex.InnerException);
+            }
+            return allEmpTypes;
+
+        }
+
     }
 }

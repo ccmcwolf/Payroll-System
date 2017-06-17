@@ -9,11 +9,11 @@ namespace payroll
     public partial class Emp_Extra_Work
     {
         [Key]
-        public int Employee_ID { get; set; }
+        public int ExtraAttendance_ID { get; set; }
 
-        public int? Employee_Type_ID { get; set; }
+        public int? Employee_ID { get; set; }
 
-        public DateTime? Work_Date { get; set; }
+        public DateTime Work_Date { get; set; }
 
         public float? Work_Hours { get; set; }
 
