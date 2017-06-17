@@ -13,7 +13,7 @@ namespace payroll
 
         public int? Employee_ID { get; set; }
 
-        public DateTime Work_Date { get; set; }
+        public DateTime? Work_Date { get; set; }
 
         public float? Work_Hours { get; set; }
 

@@ -17,18 +17,14 @@ namespace payroll
         public virtual DbSet<Emp_Extra_Work> Emp_Extra_Work { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Employee_Type> Employee_Type { get; set; }
-        public virtual DbSet<EmployeeTest> EmployeeTests { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<Payment_Catagory> Payment_Catagory { get; set; }
-        public virtual DbSet<Payment_Sub_Catagory> Payment_Sub_Catagory { get; set; }
         public virtual DbSet<Payroll_Allowances_Master> Payroll_Allowances_Master { get; set; }
         public virtual DbSet<Payroll_Deduction_Master> Payroll_Deduction_Master { get; set; }
         public virtual DbSet<Payroll_Designation_Master> Payroll_Designation_Master { get; set; }
-        public virtual DbSet<Payroll_Emp_Type_Master> Payroll_Emp_Type_Master { get; set; }
         public virtual DbSet<Payroll_Monthly_Allowances_Transaction> Payroll_Monthly_Allowances_Transaction { get; set; }
         public virtual DbSet<Payroll_Monthly_Deduction_Transaction> Payroll_Monthly_Deduction_Transaction { get; set; }
         public virtual DbSet<Payroll_Monthly_Salary_Process_Detail> Payroll_Monthly_Salary_Process_Detail { get; set; }
-        public virtual DbSet<Trans_Job_Assignment> Trans_Job_Assignment { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -111,10 +107,6 @@ namespace payroll
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<EmployeeTest>()
-                .Property(e => e.NIC_Num)
-                .IsUnicode(false);
-
             modelBuilder.Entity<Payment>()
                 .Property(e => e.Pay_Mode)
                 .IsUnicode(false);
@@ -139,24 +131,6 @@ namespace payroll
                 .IsUnicode(false);
 
             modelBuilder.Entity<Payment_Catagory>()
-                .Property(e => e.Delete_Flag)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Payment_Sub_Catagory>()
-                .Property(e => e.Description)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Payment_Sub_Catagory>()
-                .Property(e => e.Nature_Code)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Payment_Sub_Catagory>()
-                .Property(e => e.Active_Status)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Payment_Sub_Catagory>()
                 .Property(e => e.Delete_Flag)
                 .IsFixedLength()
                 .IsUnicode(false);
@@ -211,20 +185,6 @@ namespace payroll
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Payroll_Emp_Type_Master>()
-                .Property(e => e.Type_Name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Payroll_Emp_Type_Master>()
-                .Property(e => e.Active_Status)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Payroll_Emp_Type_Master>()
-                .Property(e => e.Delete_Flag)
-                .IsFixedLength()
-                .IsUnicode(false);
-
             modelBuilder.Entity<Payroll_Monthly_Allowances_Transaction>()
                 .Property(e => e.All_Amount)
                 .HasPrecision(19, 4);
@@ -265,26 +225,6 @@ namespace payroll
             modelBuilder.Entity<Payroll_Monthly_Salary_Process_Detail>()
                 .Property(e => e.Trans_Amount)
                 .HasPrecision(19, 4);
-
-            modelBuilder.Entity<Trans_Job_Assignment>()
-                .Property(e => e.Active_Status)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Trans_Job_Assignment>()
-                .Property(e => e.Delete_Flag)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Trans_Job_Assignment>()
-                .Property(e => e.Month_lock)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Trans_Job_Assignment>()
-                .Property(e => e.Payment_Made)
-                .IsFixedLength()
-                .IsUnicode(false);
 
             modelBuilder.Entity<User>()
                 .Property(e => e.Delete_Flag)
