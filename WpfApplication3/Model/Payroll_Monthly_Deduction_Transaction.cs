@@ -15,7 +15,7 @@ namespace payroll
 
         public int Employee_ID { get; set; }
 
-        public DateTime? Tran_Date { get; set; }
+        public DateTime Tran_Date { get; set; }
 
         [Column(TypeName = "money")]
         public decimal Deduc_Amount { get; set; }

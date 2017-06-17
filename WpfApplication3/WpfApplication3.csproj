@@ -66,15 +66,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controller\DepartmentController.cs" />
-    <Compile Include="Controller\EmpExtraWorkController.cs" />
-    <Compile Include="Controller\EmployeeAttendanceController.cs" />
-    <Compile Include="Controller\EmployeeController.cs" />
-    <Compile Include="Controller\EmployeeTypeController.cs" />
-    <Compile Include="Controller\PaymentController.cs" />
-    <Compile Include="Model\Emp_Extra_Work.cs" />
-    <Compile Include="Model\Trans_Job_Assignment.cs" />
+    <Compile Include="DAO\AllowancesMasterDAO.cs" />
+    <Compile Include="DAO\DeductionMasterDAO.cs" />
+    <Compile Include="DAO\DepartmentDAO.cs" />
+    <Compile Include="DAO\DesignationMasterDAO.cs" />
+    <Compile Include="DAO\EmpExtraWorkDAO.cs" />
+    <Compile Include="DAO\EmployeeAttendanceDAO.cs" />
+    <Compile Include="DAO\EmployeeDAO.cs" />
+    <Compile Include="DAO\EmployeeTypeDAO.cs" />
+    <Compile Include="DAO\MonthlyAllowanceDAO.cs" />
+    <Compile Include="DAO\MonthlyDeductionDAO.cs" />
+    <Compile Include="DAO\MonthlySalaryProcessDAO.cs" />
+    <Compile Include="DAO\PaymentCategoryDAO.cs" />
+    <Compile Include="DAO\PaymentDAO.cs" />
+    <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="Util\EncryptionUtil.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -85,26 +92,24 @@
     </Compile>
     <Compile Include="Model\Department_Master.cs" />
     <Compile Include="Model\Employee.cs" />
-    <Compile Include="Model\EmployeeTest.cs" />
     <Compile Include="Model\Employee_Type.cs" />
     <Compile Include="Model\Emp_Attendance.cs" />
+    <Compile Include="Model\Emp_Extra_Work.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Payment.cs" />
     <Compile Include="Model\Payment_Catagory.cs" />
-    <Compile Include="Model\Payment_Sub_Catagory.cs" />
     <Compile Include="Model\PayrollModel.cs" />
     <Compile Include="Model\Payroll_Allowances_Master.cs" />
     <Compile Include="Model\Payroll_Deduction_Master.cs" />
     <Compile Include="Model\Payroll_Designation_Master.cs" />
-    <Compile Include="Model\Payroll_Emp_Type_Master.cs" />
     <Compile Include="Model\Payroll_Monthly_Allowances_Transaction.cs" />
     <Compile Include="Model\Payroll_Monthly_Deduction_Transaction.cs" />
     <Compile Include="Model\Payroll_Monthly_Salary_Process_Detail.cs" />
-    <Compile Include="Model\Payment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

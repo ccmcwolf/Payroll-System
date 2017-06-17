@@ -1,16 +1,15 @@
-﻿using payroll;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfApplication3.Controller
+namespace payroll.DAO
 {
-    class EmployeeTypeController
+    class PaymentCategoryDAO
     {
-        public Boolean addEmployeeType(Employee_Type employeeType)
+        public Boolean addPaymentController(Payment_Catagory paymentcategory)
         {
             Boolean status = false;
             try
@@ -18,7 +17,7 @@ namespace WpfApplication3.Controller
                 using (var db = new PayrollModel())
                 {
 
-                    db.Employee_Type.Add(employeeType);
+                    db.Payment_Catagory.Add(paymentcategory);
                     db.SaveChanges();
                     status = true;
 
@@ -26,20 +25,20 @@ namespace WpfApplication3.Controller
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.InnerException);
+                Console.WriteLine("payemtn category add error "+ex.InnerException);
             }
             return status;
         }
 
-        public Boolean updateEmployeeType(Employee_Type employeeType)
+        public Boolean updatePaymentCategory(Payment_Catagory category)
         {
             Boolean status = false;
             try
             {
                 using (var db = new PayrollModel())
                 {
-                    Console.WriteLine("Employee detail updated");
-                    db.Employee_Type.AddOrUpdate(employeeType);
+                    Console.WriteLine("Employee category updated");
+                    db.Payment_Catagory.AddOrUpdate(category);
                     db.SaveChanges();
                     status = true;
 
@@ -47,31 +46,31 @@ namespace WpfApplication3.Controller
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Update employeeType problem " + ex.InnerException);
+                Console.WriteLine("Update category problem " + ex.InnerException);
             }
             return status;
         }
 
-        public Employee_Type findEmployeeType(int employeeTypeId)
+        public Payment_Catagory findPaymentCategoryByID(int catId)
         {
-            Employee_Type employeeType = null;
+             Payment_Catagory category = null;
             try
             {
                 using (var db = new PayrollModel())
                 {
 
-                    employeeType = db.Employee_Type.Find(employeeTypeId);
+                    category = db.Payment_Catagory.Find(catId);
 
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("find employee" + ex.InnerException);
+                Console.WriteLine("find category error" + ex.InnerException);
             }
-            return employeeType;
+            return category;
         }
 
-        public Boolean deleteMemberType(int id)
+        public Boolean deletecategoryByID(int id)
         {
             Boolean status = false;
 
@@ -79,9 +78,9 @@ namespace WpfApplication3.Controller
             {
                 using (var db = new PayrollModel())
                 {
-                    Employee_Type employee = db.Employee_Type.First(b => b.Employee_Type_ID == id);
+                    Payment_Catagory paymmentCat = db.Payment_Catagory.First(b => b.Pay_Cat_ID == id);
 
-                    db.Employee_Type.Remove(employee);
+                    db.Payment_Catagory.Remove(paymmentCat);
                     db.SaveChanges();
                     status = true;
 
@@ -89,27 +88,27 @@ namespace WpfApplication3.Controller
             }
             catch (Exception ex)
             {
-                Console.WriteLine("delete employeeID " + ex.InnerException);
+                Console.WriteLine("delete pay cat error" + ex.InnerException);
             }
             return status;
         }
 
-        public List<Employee_Type> loadallEmployeeTypes()
+        public List<Payment_Catagory> loadAllPaymentCategories()
         {
-            List<Employee_Type> allEmpTypes = null;
+            List<Payment_Catagory> categories= null;
             try
             {
                 using (var db = new PayrollModel())
                 {
-                    allEmpTypes  = db.Set<Employee_Type>().ToList();
+                    categories = db.Set<Payment_Catagory>().ToList();
 
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("load all types error " + ex.InnerException);
+                Console.WriteLine("load payement categories  error " + ex.InnerException);
             }
-            return allEmpTypes;
+            return categories;
 
         }
 

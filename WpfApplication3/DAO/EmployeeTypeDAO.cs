@@ -1,15 +1,16 @@
-﻿using System;
+﻿using payroll;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace payroll.Controller
+namespace WpfApplication3.Controller
 {
-    class DesignationMasterController
+    class EmployeeTypeDAO
     {
-        public Boolean addDesignation(Payroll_Designation_Master designation)
+        public Boolean addEmployeeType(Employee_Type employeeType)
         {
             Boolean status = false;
             try
@@ -17,7 +18,7 @@ namespace payroll.Controller
                 using (var db = new PayrollModel())
                 {
 
-                    db.Payroll_Designation_Master.Add(designation);
+                    db.Employee_Type.Add(employeeType);
                     db.SaveChanges();
                     status = true;
 
@@ -25,20 +26,20 @@ namespace payroll.Controller
             }
             catch (Exception ex)
             {
-                Console.WriteLine("designation add error"+ex.InnerException);
+                Console.WriteLine(ex.InnerException);
             }
             return status;
         }
 
-        public Boolean updateDesignationMaster(Payroll_Designation_Master desingation)
+        public Boolean updateEmployeeType(Employee_Type employeeType)
         {
             Boolean status = false;
             try
             {
                 using (var db = new PayrollModel())
                 {
-                    Console.WriteLine("desingation updated");
-                    db.Payroll_Designation_Master.AddOrUpdate(desingation);
+                    Console.WriteLine("Employee detail updated");
+                    db.Employee_Type.AddOrUpdate(employeeType);
                     db.SaveChanges();
                     status = true;
 
@@ -46,31 +47,31 @@ namespace payroll.Controller
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Update desingation error" + ex.InnerException);
+                Console.WriteLine("Update employeeType problem " + ex.InnerException);
             }
             return status;
         }
 
-        public Payroll_Designation_Master findByDesingationID(int desinationID)
+        public Employee_Type findEmployeeType(int employeeTypeId)
         {
-            Payroll_Designation_Master designation = null;
+            Employee_Type employeeType = null;
             try
             {
                 using (var db = new PayrollModel())
                 {
 
-                    designation = db.Payroll_Designation_Master.Find(desinationID);
+                    employeeType = db.Employee_Type.Find(employeeTypeId);
 
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("find designation error " + ex.InnerException);
+                Console.WriteLine("find employee" + ex.InnerException);
             }
-            return designation;
+            return employeeType;
         }
 
-        public Boolean deleteDesignationbyId(int id)
+        public Boolean deleteMemberType(int id)
         {
             Boolean status = false;
 
@@ -78,9 +79,9 @@ namespace payroll.Controller
             {
                 using (var db = new PayrollModel())
                 {
-                    Payroll_Designation_Master designationmaster = db.Payroll_Designation_Master.First(b => b.Designation_ID == id);
+                    Employee_Type employee = db.Employee_Type.First(b => b.Employee_Type_ID == id);
 
-                    db.Payroll_Designation_Master.Remove(designationmaster);
+                    db.Employee_Type.Remove(employee);
                     db.SaveChanges();
                     status = true;
 
@@ -88,30 +89,29 @@ namespace payroll.Controller
             }
             catch (Exception ex)
             {
-                Console.WriteLine("delete designation " + ex.InnerException);
+                Console.WriteLine("delete employeeID " + ex.InnerException);
             }
             return status;
         }
 
-        public List<Payroll_Designation_Master> loadallDesignationMasters()
+        public List<Employee_Type> loadallEmployeeTypes()
         {
-            List<Payroll_Designation_Master> designations = null;
+            List<Employee_Type> allEmpTypes = null;
             try
             {
                 using (var db = new PayrollModel())
                 {
-                    designations = db.Set<Payroll_Designation_Master>().ToList();
+                    allEmpTypes  = db.Set<Employee_Type>().ToList();
 
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("findall designations error " + ex.InnerException);
+                Console.WriteLine("load all types error " + ex.InnerException);
             }
-            return designations;
+            return allEmpTypes;
 
         }
-
 
     }
 }

@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace payroll.Controller
+namespace payroll.DAO
 {
-    class DeductionController
+    class AllowancesMasterDAO
     {
-        public Boolean addDeductionMaster(Payroll_Deduction_Master deduction)
+        public Boolean addAllowanceMaster(Payroll_Allowances_Master allowances)
         {
             Boolean status = false;
             try
@@ -17,7 +17,7 @@ namespace payroll.Controller
                 using (var db = new PayrollModel())
                 {
 
-                    db.Payroll_Deduction_Master.Add(deduction);
+                    db.Payroll_Allowances_Master.Add(allowances);
                     db.SaveChanges();
                     status = true;
 
@@ -25,20 +25,20 @@ namespace payroll.Controller
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.InnerException);
+                Console.WriteLine("Allowance add ereor "+ex.InnerException);
             }
             return status;
         }
 
-        public Boolean updateDeductionMaster(Payroll_Deduction_Master deduction)
+        public Boolean updateAllowanceMaster(Payroll_Allowances_Master allowance)
         {
             Boolean status = false;
             try
             {
                 using (var db = new PayrollModel())
                 {
-                    Console.WriteLine("Deduction updated");
-                    db.Payroll_Deduction_Master.AddOrUpdate(deduction);
+                    Console.WriteLine("Allowance updated");
+                    db.Payroll_Allowances_Master.AddOrUpdate(allowance);
                     db.SaveChanges();
                     status = true;
 
@@ -46,31 +46,31 @@ namespace payroll.Controller
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Update deduction master error " + ex.InnerException);
+                Console.WriteLine("Update allowances problem " + ex.InnerException);
             }
             return status;
         }
 
-        public Payroll_Deduction_Master findByDeductionMasterId(int deductionId)
+        public Payroll_Allowances_Master findByAllowanceId(int allowanceId)
         {
-            Payroll_Deduction_Master deduction = null;
+            Payroll_Allowances_Master allowance = null;
             try
             {
                 using (var db = new PayrollModel())
                 {
 
-                    deduction = db.Payroll_Deduction_Master.Find(deduction);
+                    allowance = db.Payroll_Allowances_Master.Find(allowanceId);
 
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("find employee" + ex.InnerException);
+                Console.WriteLine("find allowance error" + ex.InnerException);
             }
-            return deduction;
+            return allowance;
         }
 
-        public Boolean deleteMasterDeductionbyId(int id)
+        public Boolean deleteAllowancebyId(int id)
         {
             Boolean status = false;
 
@@ -78,9 +78,9 @@ namespace payroll.Controller
             {
                 using (var db = new PayrollModel())
                 {
-                    Payroll_Deduction_Master dedctionMaster = db.Payroll_Deduction_Master.First(b => b.Deduction_ID== id);
+                    Payroll_Allowances_Master allowance = db.Payroll_Allowances_Master.First(b => b.Allowance_ID == id);
 
-                    db.Payroll_Deduction_Master.Remove(dedctionMaster);
+                    db.Payroll_Allowances_Master.Remove(allowance);
                     db.SaveChanges();
                     status = true;
 
@@ -88,30 +88,29 @@ namespace payroll.Controller
             }
             catch (Exception ex)
             {
-                Console.WriteLine("delete deduction master " + ex.InnerException);
+                Console.WriteLine("delete allowances " + ex.InnerException);
             }
             return status;
         }
 
-        public List<Payroll_Deduction_Master> loadallMasterDeductions()
+        public List<Payroll_Allowances_Master> loadallAllowances()
         {
-            List<Payroll_Deduction_Master> deductions = null;
+            List<Payroll_Allowances_Master> allowances = null;
             try
             {
                 using (var db = new PayrollModel())
                 {
-                    deductions  = db.Set<Payroll_Deduction_Master>().ToList();
+                    allowances = db.Set<Payroll_Allowances_Master>().ToList();
 
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("load all deductions master error " + ex.InnerException);
+                Console.WriteLine("findall allowances error " + ex.InnerException);
             }
-            return deductions;
+            return allowances;
 
         }
-
 
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WpfApplication3.Controller
 {
-    class EmployeeController
+    class EmployeeDAO
     {
 
         public Boolean addEmployee(Employee employee)

@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace payroll.Controller
+namespace payroll.DAO
 {
-    class PaymentCategoryController
+    class DesignationMasterDAO
     {
-        public Boolean addPaymentController(Payment_Catagory paymentcategory)
+        public Boolean addDesignation(Payroll_Designation_Master designation)
         {
             Boolean status = false;
             try
@@ -17,7 +17,7 @@ namespace payroll.Controller
                 using (var db = new PayrollModel())
                 {
 
-                    db.Payment_Catagory.Add(paymentcategory);
+                    db.Payroll_Designation_Master.Add(designation);
                     db.SaveChanges();
                     status = true;
 
@@ -25,20 +25,20 @@ namespace payroll.Controller
             }
             catch (Exception ex)
             {
-                Console.WriteLine("payemtn category add error "+ex.InnerException);
+                Console.WriteLine("designation add error"+ex.InnerException);
             }
             return status;
         }
 
-        public Boolean updatePaymentCategory(Payment_Catagory category)
+        public Boolean updateDesignationMaster(Payroll_Designation_Master desingation)
         {
             Boolean status = false;
             try
             {
                 using (var db = new PayrollModel())
                 {
-                    Console.WriteLine("Employee category updated");
-                    db.Payment_Catagory.AddOrUpdate(category);
+                    Console.WriteLine("desingation updated");
+                    db.Payroll_Designation_Master.AddOrUpdate(desingation);
                     db.SaveChanges();
                     status = true;
 
@@ -46,31 +46,31 @@ namespace payroll.Controller
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Update category problem " + ex.InnerException);
+                Console.WriteLine("Update desingation error" + ex.InnerException);
             }
             return status;
         }
 
-        public Payment_Catagory findPaymentCategoryByID(int catId)
+        public Payroll_Designation_Master findByDesingationID(int desinationID)
         {
-             Payment_Catagory category = null;
+            Payroll_Designation_Master designation = null;
             try
             {
                 using (var db = new PayrollModel())
                 {
 
-                    category = db.Payment_Catagory.Find(catId);
+                    designation = db.Payroll_Designation_Master.Find(desinationID);
 
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("find category error" + ex.InnerException);
+                Console.WriteLine("find designation error " + ex.InnerException);
             }
-            return category;
+            return designation;
         }
 
-        public Boolean deletecategoryByID(int id)
+        public Boolean deleteDesignationbyId(int id)
         {
             Boolean status = false;
 
@@ -78,9 +78,9 @@ namespace payroll.Controller
             {
                 using (var db = new PayrollModel())
                 {
-                    Payment_Catagory paymmentCat = db.Payment_Catagory.First(b => b.Pay_Cat_ID == id);
+                    Payroll_Designation_Master designationmaster = db.Payroll_Designation_Master.First(b => b.Designation_ID == id);
 
-                    db.Payment_Catagory.Remove(paymmentCat);
+                    db.Payroll_Designation_Master.Remove(designationmaster);
                     db.SaveChanges();
                     status = true;
 
@@ -88,29 +88,30 @@ namespace payroll.Controller
             }
             catch (Exception ex)
             {
-                Console.WriteLine("delete pay cat error" + ex.InnerException);
+                Console.WriteLine("delete designation " + ex.InnerException);
             }
             return status;
         }
 
-        public List<Payment_Catagory> loadAllPaymentCategories()
+        public List<Payroll_Designation_Master> loadallDesignationMasters()
         {
-            List<Payment_Catagory> categories= null;
+            List<Payroll_Designation_Master> designations = null;
             try
             {
                 using (var db = new PayrollModel())
                 {
-                    categories = db.Set<Payment_Catagory>().ToList();
+                    designations = db.Set<Payroll_Designation_Master>().ToList();
 
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("load payement categories  error " + ex.InnerException);
+                Console.WriteLine("findall designations error " + ex.InnerException);
             }
-            return categories;
+            return designations;
 
         }
+
 
     }
 }

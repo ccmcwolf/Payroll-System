@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace payroll.Controller
+namespace payroll.DAO
 {
-    class EmpExtraWorkController
+    class EmpExtraWorkDAO
     {
         public Boolean addExtraWork(Emp_Extra_Work extrawork)
         {

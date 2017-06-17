@@ -1,4 +1,4 @@
-// A Hello World! program in C#.
+
 
 using payroll;
 using System;
@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace  WpfApplication3.Controller
 {
-    class DepartmentController 
+    class PaymentDAO
     {
-        public Boolean AddDepartment(Department_Master department)
+        public Boolean AddPayment(Payment payment)
         {
             Boolean status = false;
             try
@@ -20,7 +20,7 @@ namespace  WpfApplication3.Controller
                 using (var db = new PayrollModel())
                 {
 
-                    db.Department_Master.Add(department);
+                    db.Payments.Add(payment);
                     db.SaveChanges();
                     status = true;
 
@@ -33,7 +33,7 @@ namespace  WpfApplication3.Controller
             return status;
         }
         
-        public Boolean updateDepartment(Department_Master department)
+        public Boolean updatePayment(Payment payment)
         {
             Boolean status = false;
             try
@@ -41,7 +41,7 @@ namespace  WpfApplication3.Controller
                 using (var db = new PayrollModel())
                 {
                     Console.WriteLine("Department updated");
-                    db.Department_Master.AddOrUpdate(department);
+                    db.Payments.AddOrUpdate(payment);
                     db.SaveChanges();
                     status = true;
 
@@ -53,48 +53,67 @@ namespace  WpfApplication3.Controller
             }
             return status;
         }
-
-        public List<Department_Master> loadallDepartments()
+        
+        public Payment findByPaymentID(int id)
         {
-            List<Department_Master> departments= null;
+            Payment payment= null;
             try
             {
                 using (var db = new PayrollModel())
                 {
-                    departments  = db.Set<Department_Master>().ToList();
+
+                    payment = db.Payments.Find(id);
 
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("load departments error " + ex.InnerException);
+                Console.WriteLine("find Payment Error" + ex.InnerException);
             }
-            return departments;
-
+            return payment;
         }
 
-
-        public Boolean deleteDepartmentbyId(int id)
+        public List<Payment> findPaymentforEmployee(int employeeid)
         {
-            Boolean status = false;
-
+            List<Payment> payments = null;
             try
             {
                 using (var db = new PayrollModel())
                 {
-                    Department_Master department = db.Department_Master.First(b => b.Department_ID == id);
 
-                    db.Department_Master.Remove(department);
-                    db.SaveChanges();
-                    status = true;
+                    payments = db.Payments.Where(payment => payment.employeeid == employeeid ).ToList();
 
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("delete department error " + ex.InnerException);
+                Console.WriteLine("find Payment Error" + ex.InnerException);
             }
-            return status;
+            return payments;
         }
+
+
+
+        public List<Payment> loadAllPayments()
+        {
+            List<Payment> payments= null;
+
+            try
+            {
+                using (var db = new PayrollModel())
+                {
+
+                    payments  = db.Set<Payment>().ToList();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Load all payments error"+ex.InnerException);
+            }
+            return payments;
+        }
+        
+        
     }
 }
