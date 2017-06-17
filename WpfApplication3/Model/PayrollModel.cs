@@ -1,4 +1,4 @@
-namespace WpfApplication3
+namespace payroll
 {
     using System;
     using System.Data.Entity;
@@ -12,7 +12,6 @@ namespace WpfApplication3
         {
         }
 
-        public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Department_Master> Department_Master { get; set; }
         public virtual DbSet<Emp_Attendance> Emp_Attendance { get; set; }
         public virtual DbSet<Emp_Extra_Work> Emp_Extra_Work { get; set; }
@@ -29,24 +28,11 @@ namespace WpfApplication3
         public virtual DbSet<Payroll_Monthly_Allowances_Transaction> Payroll_Monthly_Allowances_Transaction { get; set; }
         public virtual DbSet<Payroll_Monthly_Deduction_Transaction> Payroll_Monthly_Deduction_Transaction { get; set; }
         public virtual DbSet<Payroll_Monthly_Salary_Process_Detail> Payroll_Monthly_Salary_Process_Detail { get; set; }
-        public virtual DbSet<Receipt> Receipts { get; set; }
-        public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<Trans_Job_Assignment> Trans_Job_Assignment { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Vehicle> Vehicles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Customer>()
-                .Property(e => e.Active_Status)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Customer>()
-                .Property(e => e.Delete_Flag)
-                .IsFixedLength()
-                .IsUnicode(false);
-
             modelBuilder.Entity<Department_Master>()
                 .Property(e => e.Department_Name)
                 .IsUnicode(false);
@@ -280,30 +266,6 @@ namespace WpfApplication3
                 .Property(e => e.Trans_Amount)
                 .HasPrecision(19, 4);
 
-            modelBuilder.Entity<Receipt>()
-                .Property(e => e.Rec_Pay_Mode)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Receipt>()
-                .Property(e => e.Active_Status)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Receipt>()
-                .Property(e => e.Delete_Flag)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Supplier>()
-                .Property(e => e.Active_Status)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Supplier>()
-                .Property(e => e.Delete_Flag)
-                .IsFixedLength()
-                .IsUnicode(false);
-
             modelBuilder.Entity<Trans_Job_Assignment>()
                 .Property(e => e.Active_Status)
                 .IsFixedLength()
@@ -331,20 +293,6 @@ namespace WpfApplication3
 
             modelBuilder.Entity<User>()
                 .Property(e => e.Active_Status)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Vehicle>()
-                .Property(e => e.Vehicle_Display_Name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Vehicle>()
-                .Property(e => e.Active_Status)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Vehicle>()
-                .Property(e => e.Delete_Flag)
                 .IsFixedLength()
                 .IsUnicode(false);
         }

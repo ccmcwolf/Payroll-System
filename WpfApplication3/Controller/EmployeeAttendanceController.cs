@@ -1,4 +1,5 @@
-﻿using System;
+﻿using payroll;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
@@ -46,7 +47,7 @@ namespace WpfApplication3.Controller
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Update employee problem " + ex.InnerException);
+                Console.WriteLine("Update employee problem error" + ex.InnerException);
             }
             return status;
         }
@@ -65,7 +66,7 @@ namespace WpfApplication3.Controller
             }
             catch (Exception ex)
             {
-                Console.WriteLine("find employee Type" + ex.InnerException);
+                Console.WriteLine("find employee Type error" + ex.InnerException);
             }
             return attendance;
         }
@@ -84,7 +85,7 @@ namespace WpfApplication3.Controller
             }
             catch (Exception ex)
             {
-                Console.WriteLine("find employee Type" + ex.InnerException);
+                Console.WriteLine("find employee Type error" + ex.InnerException);
             }
             return attendance;
         }
@@ -103,12 +104,12 @@ namespace WpfApplication3.Controller
             }
             catch (Exception ex)
             {
-                Console.WriteLine("find employee Type" + ex.InnerException);
+                Console.WriteLine("find employee Type error" + ex.InnerException);
             }
             return attendance;
         }
 
-        public Boolean deleteAttendance(int id)
+        public Boolean deleteAttendance(int id,DateTime date)
         {
             Boolean status = false;
 
@@ -116,7 +117,7 @@ namespace WpfApplication3.Controller
             {
                 using (var db = new PayrollModel())
                 {
-                    Emp_Attendance attendance = db.Emp_Attendance.First(b => b. == id);
+                    Emp_Attendance attendance = db.Emp_Attendance.First(b => b.Employee_ID==id & b.Atten_Date==date);
 
                     db.Emp_Attendance.Remove(attendance);
                     db.SaveChanges();
@@ -126,9 +127,13 @@ namespace WpfApplication3.Controller
             }
             catch (Exception ex)
             {
-                Console.WriteLine("delete attendance " + ex.InnerException);
+                Console.WriteLine("attendance deleted error" + ex.InnerException);
             }
             return status;
         }
+
+
+
+
     }
 }

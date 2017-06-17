@@ -1,4 +1,4 @@
-namespace WpfApplication3
+namespace payroll
 {
     using System;
     using System.Collections.Generic;
@@ -27,7 +27,6 @@ namespace WpfApplication3
 
         public int? Updated_User_ID { get; set; }
 
-        [Required]
         [StringLength(1)]
         public string Delete_Flag { get; set; }
     }

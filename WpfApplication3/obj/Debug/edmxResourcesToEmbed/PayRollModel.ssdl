@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TMS_NewModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Cust_ID" />
+    </Key>
+    <Property Name="Cust_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cust_Code" Type="nvarchar" MaxLength="12" />
+    <Property Name="Cust_Display_Name" Type="nvarchar" MaxLength="60" />
+    <Property Name="Cust_Add_1" Type="nvarchar" MaxLength="100" />
+    <Property Name="Cust_Add_2" Type="nvarchar" MaxLength="100" />
+    <Property Name="Cust_Desc" Type="nvarchar" MaxLength="200" />
+    <Property Name="Cust_Primary_Cont_Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="Cust_Primary_Cont_Num" Type="nvarchar" MaxLength="20" />
+    <Property Name="Cust_Sec_Cont_Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="Cust_Sec_Cont_Num" Type="nvarchar" MaxLength="20" />
+    <Property Name="Active_Status" Type="char" MaxLength="1" />
+    <Property Name="Created_Date" Type="datetime" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Updated_User_ID" Type="int" />
+    <Property Name="Delete_Flag" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Department_Master">
+    <Key>
+      <PropertyRef Name="Department_ID" />
+    </Key>
+    <Property Name="Department_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Department_Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Head_ID" Type="int" Nullable="false" />
+    <Property Name="Active_Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Created_Date" Type="datetime" Nullable="false" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Updated_User_ID" Type="int" />
+    <Property Name="Delete_Flag" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Emp_Attendance">
+    <Key>
+      <PropertyRef Name="Employee_ID" />
+    </Key>
+    <Property Name="Employee_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Employee_Type_ID" Type="int" />
+    <Property Name="Atten_Date" Type="datetime" />
+    <Property Name="Processed_Date" Type="datetime" />
+    <Property Name="Process_Status" Type="char" MaxLength="1" />
+    <Property Name="Active_Status" Type="char" MaxLength="1" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Updated_User_ID" Type="int" />
+    <Property Name="Delete_Flag" Type="char" MaxLength="1" />
+    <Property Name="Month_lock" Type="char" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="Emp_Extra_Work">
+    <Key>
+      <PropertyRef Name="Employee_ID" />
+    </Key>
+    <Property Name="Employee_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Employee_Type_ID" Type="int" />
+    <Property Name="Work_Date" Type="datetime" />
+    <Property Name="Work_Hours" Type="real" />
+    <Property Name="Active_Status" Type="char" MaxLength="1" />
+    <Property Name="Process_Status" Type="char" MaxLength="1" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Updated_User_ID" Type="int" />
+    <Property Name="Delete_Flag" Type="char" MaxLength="1" />
+    <Property Name="Month_lock" Type="char" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Employee_ID" />
+    </Key>
+    <Property Name="Employee_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="First_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Second_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Third_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DOB" Type="datetime" />
+    <Property Name="Join_Date" Type="datetime" />
+    <Property Name="NIC_Num" Type="varchar" MaxLength="15" />
+    <Property Name="Contact_Home" Type="nvarchar" MaxLength="20" />
+    <Property Name="Contact_Mobile" Type="nvarchar" MaxLength="20" />
+    <Property Name="Contact_Other" Type="nvarchar" MaxLength="20" />
+    <Property Name="Add_Home_1" Type="nvarchar" MaxLength="200" />
+    <Property Name="Add_Home_2" Type="nvarchar" MaxLength="100" />
+    <Property Name="Employee_Type_ID" Type="int" />
+    <Property Name="Employee_Type_Eff_Date" Type="datetime" />
+    <Property Name="Department_ID" Type="int" />
+    <Property Name="Department_Eff_Date" Type="datetime" />
+    <Property Name="Resigned_Date" Type="datetime" />
+    <Property Name="Active_Status" Type="char" MaxLength="1" />
+    <Property Name="BasicSalary" Type="float" />
+    <Property Name="Incentive" Type="float" />
+    <Property Name="Att_Allowance" Type="float" />
+    <Property Name="Created_Date" Type="datetime" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Updated_User_ID" Type="int" />
+    <Property Name="Delete_Flag" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Employee_Type">
+    <Key>
+      <PropertyRef Name="Employee_Type_ID" />
+    </Key>
+    <Property Name="Employee_Type_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Employee_Type" Type="nvarchar" MaxLength="120" />
+    <Property Name="Active_Status" Type="char" MaxLength="1" />
+    <Property Name="Created_Date" Type="datetime" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Updated_User_ID" Type="int" />
+    <Property Name="Delete_Flag" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="EmployeeTest">
+    <Key>
+      <PropertyRef Name="Employee_ID" />
+    </Key>
+    <Property Name="Employee_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="First_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Second_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Third_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DOB" Type="datetime" />
+    <Property Name="Join_Date" Type="datetime" />
+    <Property Name="NIC_Num" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="Payment_ID" />
+    </Key>
+    <Property Name="Payment_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Payment_Date" Type="datetime" Nullable="false" />
+    <Property Name="Pay_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Pay_Mode" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="Pay_Cat_ID" Type="int" Nullable="false" />
+    <Property Name="Pay_Amount" Type="real" Nullable="false" />
+    <Property Name="Pay_Authorised_By" Type="int" Nullable="false" />
+    <Property Name="Created_Date" Type="datetime" />
+    <Property Name="Active_Status" Type="char" MaxLength="1" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Updated_User_ID" Type="int" />
+    <Property Name="Delete_Flag" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Payment_Catagory">
+    <Key>
+      <PropertyRef Name="Pay_Cat_ID" />
+    </Key>
+    <Property Name="Pay_Cat_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Pay_Sub_Cat_ID" Type="int" Nullable="false" />
+    <Property Name="Active_Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Delete_Flag" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payment_Sub_Catagory">
+    <Key>
+      <PropertyRef Name="Pay_Sub_Cat_ID" />
+    </Key>
+    <Property Name="Pay_Sub_Cat_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Nature_Code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Active_Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Delete_Flag" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payroll_Allowances_Master">
+    <Key>
+      <PropertyRef Name="Allowance_ID" />
+    </Key>
+    <Property Name="Allowance_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Desription" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="All_Amount" Type="money" Nullable="false" />
+    <Property Name="Active_Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Created_Date" Type="datetime" Nullable="false" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Updated_User_ID" Type="int" />
+    <Property Name="Delete_Flag" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payroll_Deduction_Master">
+    <Key>
+      <PropertyRef Name="Deduction_ID" />
+    </Key>
+    <Property Name="Deduction_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Dedu_Amount" Type="money" Nullable="false" />
+    <Property Name="Active_Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Created_Date" Type="datetime" Nullable="false" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Updated_User_ID" Type="int" />
+    <Property Name="Delete_Flag" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payroll_Designation_Master">
+    <Key>
+      <PropertyRef Name="Designation_ID" />
+    </Key>
+    <Property Name="Designation_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Designation_Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Department_ID" Type="int" Nullable="false" />
+    <Property Name="Active_Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Created_Date" Type="datetime" Nullable="false" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Updated_User_ID" Type="int" />
+    <Property Name="Delete_Flag" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payroll_Emp_Type_Master">
+    <Key>
+      <PropertyRef Name="Employee_Type_ID" />
+    </Key>
+    <Property Name="Employee_Type_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type_Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Active_Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Created_Date" Type="datetime" Nullable="false" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Updated_User_ID" Type="int" />
+    <Property Name="Delete_Flag" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payroll_Monthly_Allowances_Transaction">
+    <Key>
+      <PropertyRef Name="AllowanceTran_ID" />
+    </Key>
+    <Property Name="AllowanceTran_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Allowance_ID" Type="int" Nullable="false" />
+    <Property Name="Employee_ID" Type="int" Nullable="false" />
+    <Property Name="Tran_Date" Type="datetime" />
+    <Property Name="All_Amount" Type="money" Nullable="false" />
+    <Property Name="Active_Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Created_Date" Type="datetime" Nullable="false" />
+    <Property Name="Processed_User_ID" Type="int" />
+    <Property Name="Delete_Flag" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Process_Flag" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payroll_Monthly_Deduction_Transaction">
+    <Key>
+      <PropertyRef Name="DeductionTran_ID" />
+    </Key>
+    <Property Name="DeductionTran_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Deduction_ID" Type="int" Nullable="false" />
+    <Property Name="Employee_ID" Type="int" Nullable="false" />
+    <Property Name="Tran_Date" Type="datetime" />
+    <Property Name="Deduc_Amount" Type="money" Nullable="false" />
+    <Property Name="Active_Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Created_Date" Type="datetime" Nullable="false" />
+    <Property Name="Processed_User_ID" Type="int" />
+    <Property Name="Process_Flag" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payroll_Monthly_Salary_Process_Detail">
+    <Key>
+      <PropertyRef Name="ProcessTran_ID" />
+    </Key>
+    <Property Name="ProcessTran_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Process_Date" Type="datetime" />
+    <Property Name="Employee_ID" Type="int" Nullable="false" />
+    <Property Name="Transaction_Type" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Deduction_ID" Type="int" Nullable="false" />
+    <Property Name="Allowance_ID" Type="int" Nullable="false" />
+    <Property Name="Trans_Amount" Type="money" Nullable="false" />
+    <Property Name="Created_Date" Type="datetime" Nullable="false" />
+    <Property Name="Processed_User_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Receipt">
+    <Key>
+      <PropertyRef Name="Receipt_ID" />
+    </Key>
+    <Property Name="Receipt_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Receipt_Date" Type="datetime" Nullable="false" />
+    <Property Name="Rec_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Rec_Pay_Mode" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="Rec_Amount" Type="real" Nullable="false" />
+    <Property Name="Created_Date" Type="datetime" />
+    <Property Name="Active_Status" Type="char" MaxLength="1" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Updated_User_ID" Type="int" />
+    <Property Name="Delete_Flag" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="Supplier_ID" />
+    </Key>
+    <Property Name="Supplier_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sup_Code" Type="nvarchar" MaxLength="12" />
+    <Property Name="Sup_Add_1" Type="nvarchar" MaxLength="100" />
+    <Property Name="Sup_Add_2" Type="nvarchar" MaxLength="100" />
+    <Property Name="Sup_Desc" Type="nvarchar" MaxLength="200" />
+    <Property Name="Sup_Primary_Cont_Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="Sup_Primary_Cont_Num" Type="nvarchar" MaxLength="20" />
+    <Property Name="Sup_Sec_Cont_Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="Sup_Sec_Cont_Num" Type="nvarchar" MaxLength="20" />
+    <Property Name="Active_Status" Type="char" MaxLength="1" />
+    <Property Name="Created_Date" Type="datetime" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Updated_User_ID" Type="int" />
+    <Property Name="Delete_Flag" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Trans_Job_Assignment">
+    <Key>
+      <PropertyRef Name="Trans_Assignment_ID" />
+    </Key>
+    <Property Name="Trans_Assignment_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Assignment_Date" Type="datetime" />
+    <Property Name="Cust_ID" Type="int" />
+    <Property Name="Vehicle_ID" Type="int" />
+    <Property Name="Driver_ID" Type="int" />
+    <Property Name="Cleaner_ID" Type="int" />
+    <Property Name="Start_Meter_R" Type="int" />
+    <Property Name="End_Meter_R" Type="int" />
+    <Property Name="Start_Date" Type="datetime" />
+    <Property Name="End_Date" Type="datetime" />
+    <Property Name="Free_Hours" Type="real" />
+    <Property Name="Hire_Charge" Type="real" />
+    <Property Name="Labour_Charge" Type="real" />
+    <Property Name="Container_Charge" Type="real" />
+    <Property Name="Active_Status" Type="char" MaxLength="1" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Updated_User_ID" Type="int" />
+    <Property Name="Delete_Flag" Type="char" MaxLength="1" />
+    <Property Name="Month_lock" Type="char" MaxLength="2" />
+    <Property Name="Payment_Made" Type="char" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Created_Date" Type="datetime" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Updated_User_ID" Type="int" />
+    <Property Name="Delete_Flag" Type="char" MaxLength="1" />
+    <Property Name="Active_Status" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="Vehiclet_ID" />
+    </Key>
+    <Property Name="Vehiclet_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Vehicle_Display_Name" Type="varchar" MaxLength="25" />
+    <Property Name="YOM" Type="int" />
+    <Property Name="YOR" Type="int" />
+    <Property Name="Purchase_Value" Type="real" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Created_Date" Type="datetime" />
+    <Property Name="Active_Status" Type="char" MaxLength="1" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="Updated_User_ID" Type="int" />
+    <Property Name="Delete_Flag" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityContainer Name="TMS_NewModelStoreContainer">
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Department_Master" EntityType="Self.Department_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Emp_Attendance" EntityType="Self.Emp_Attendance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Emp_Extra_Work" EntityType="Self.Emp_Extra_Work" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee_Type" EntityType="Self.Employee_Type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeTest" EntityType="Self.EmployeeTest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payment_Catagory" EntityType="Self.Payment_Catagory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payment_Sub_Catagory" EntityType="Self.Payment_Sub_Catagory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payroll_Allowances_Master" EntityType="Self.Payroll_Allowances_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payroll_Deduction_Master" EntityType="Self.Payroll_Deduction_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payroll_Designation_Master" EntityType="Self.Payroll_Designation_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payroll_Emp_Type_Master" EntityType="Self.Payroll_Emp_Type_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payroll_Monthly_Allowances_Transaction" EntityType="Self.Payroll_Monthly_Allowances_Transaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payroll_Monthly_Deduction_Transaction" EntityType="Self.Payroll_Monthly_Deduction_Transaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payroll_Monthly_Salary_Process_Detail" EntityType="Self.Payroll_Monthly_Salary_Process_Detail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Receipt" EntityType="Self.Receipt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Trans_Job_Assignment" EntityType="Self.Trans_Job_Assignment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vehicle" EntityType="Self.Vehicle" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

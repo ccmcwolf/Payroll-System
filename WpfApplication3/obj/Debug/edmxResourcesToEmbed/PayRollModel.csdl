@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TMS_NewModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Cust_ID" />
+    </Key>
+    <Property Name="Cust_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cust_Code" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Cust_Display_Name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Cust_Add_1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Cust_Add_2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Cust_Desc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Cust_Primary_Cont_Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Cust_Primary_Cont_Num" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Cust_Sec_Cont_Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Cust_Sec_Cont_Num" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Active_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_User_ID" Type="Int32" />
+    <Property Name="Delete_Flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Department_Master">
+    <Key>
+      <PropertyRef Name="Department_ID" />
+    </Key>
+    <Property Name="Department_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Department_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Head_ID" Type="Int32" Nullable="false" />
+    <Property Name="Active_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_User_ID" Type="Int32" />
+    <Property Name="Delete_Flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Emp_Attendance">
+    <Key>
+      <PropertyRef Name="Employee_ID" />
+    </Key>
+    <Property Name="Employee_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Employee_Type_ID" Type="Int32" />
+    <Property Name="Atten_Date" Type="DateTime" Precision="3" />
+    <Property Name="Processed_Date" Type="DateTime" Precision="3" />
+    <Property Name="Process_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Active_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_User_ID" Type="Int32" />
+    <Property Name="Delete_Flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Month_lock" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Emp_Extra_Work">
+    <Key>
+      <PropertyRef Name="Employee_ID" />
+    </Key>
+    <Property Name="Employee_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Employee_Type_ID" Type="Int32" />
+    <Property Name="Work_Date" Type="DateTime" Precision="3" />
+    <Property Name="Work_Hours" Type="Single" />
+    <Property Name="Active_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Process_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_User_ID" Type="Int32" />
+    <Property Name="Delete_Flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Month_lock" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Employee_ID" />
+    </Key>
+    <Property Name="Employee_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="First_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Second_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Third_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DOB" Type="DateTime" Precision="3" />
+    <Property Name="Join_Date" Type="DateTime" Precision="3" />
+    <Property Name="NIC_Num" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Contact_Home" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Contact_Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Contact_Other" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Add_Home_1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Add_Home_2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Employee_Type_ID" Type="Int32" />
+    <Property Name="Employee_Type_Eff_Date" Type="DateTime" Precision="3" />
+    <Property Name="Department_ID" Type="Int32" />
+    <Property Name="Department_Eff_Date" Type="DateTime" Precision="3" />
+    <Property Name="Resigned_Date" Type="DateTime" Precision="3" />
+    <Property Name="Active_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="BasicSalary" Type="Double" />
+    <Property Name="Incentive" Type="Double" />
+    <Property Name="Att_Allowance" Type="Double" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_User_ID" Type="Int32" />
+    <Property Name="Delete_Flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Employee_Type">
+    <Key>
+      <PropertyRef Name="Employee_Type_ID" />
+    </Key>
+    <Property Name="Employee_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Employee_Type1" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="Active_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_User_ID" Type="Int32" />
+    <Property Name="Delete_Flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="EmployeeTest">
+    <Key>
+      <PropertyRef Name="Employee_ID" />
+    </Key>
+    <Property Name="Employee_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="First_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Second_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Third_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DOB" Type="DateTime" Precision="3" />
+    <Property Name="Join_Date" Type="DateTime" Precision="3" />
+    <Property Name="NIC_Num" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="Payment_ID" />
+    </Key>
+    <Property Name="Payment_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Payment_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Pay_Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Pay_Mode" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pay_Cat_ID" Type="Int32" Nullable="false" />
+    <Property Name="Pay_Amount" Type="Single" Nullable="false" />
+    <Property Name="Pay_Authorised_By" Type="Int32" Nullable="false" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Active_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_User_ID" Type="Int32" />
+    <Property Name="Delete_Flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Payment_Catagory">
+    <Key>
+      <PropertyRef Name="Pay_Cat_ID" />
+    </Key>
+    <Property Name="Pay_Cat_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pay_Sub_Cat_ID" Type="Int32" Nullable="false" />
+    <Property Name="Active_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Delete_Flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payment_Sub_Catagory">
+    <Key>
+      <PropertyRef Name="Pay_Sub_Cat_ID" />
+    </Key>
+    <Property Name="Pay_Sub_Cat_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nature_Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Active_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Delete_Flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payroll_Allowances_Master">
+    <Key>
+      <PropertyRef Name="Allowance_ID" />
+    </Key>
+    <Property Name="Allowance_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Desription" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="All_Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Active_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_User_ID" Type="Int32" />
+    <Property Name="Delete_Flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payroll_Deduction_Master">
+    <Key>
+      <PropertyRef Name="Deduction_ID" />
+    </Key>
+    <Property Name="Deduction_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Dedu_Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Active_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_User_ID" Type="Int32" />
+    <Property Name="Delete_Flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payroll_Designation_Master">
+    <Key>
+      <PropertyRef Name="Designation_ID" />
+    </Key>
+    <Property Name="Designation_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Designation_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Department_ID" Type="Int32" Nullable="false" />
+    <Property Name="Active_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_User_ID" Type="Int32" />
+    <Property Name="Delete_Flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payroll_Emp_Type_Master">
+    <Key>
+      <PropertyRef Name="Employee_Type_ID" />
+    </Key>
+    <Property Name="Employee_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Active_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_User_ID" Type="Int32" />
+    <Property Name="Delete_Flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payroll_Monthly_Allowances_Transaction">
+    <Key>
+      <PropertyRef Name="AllowanceTran_ID" />
+    </Key>
+    <Property Name="AllowanceTran_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Allowance_ID" Type="Int32" Nullable="false" />
+    <Property Name="Employee_ID" Type="Int32" Nullable="false" />
+    <Property Name="Tran_Date" Type="DateTime" Precision="3" />
+    <Property Name="All_Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Active_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Processed_User_ID" Type="Int32" />
+    <Property Name="Delete_Flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Process_Flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payroll_Monthly_Deduction_Transaction">
+    <Key>
+      <PropertyRef Name="DeductionTran_ID" />
+    </Key>
+    <Property Name="DeductionTran_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Deduction_ID" Type="Int32" Nullable="false" />
+    <Property Name="Employee_ID" Type="Int32" Nullable="false" />
+    <Property Name="Tran_Date" Type="DateTime" Precision="3" />
+    <Property Name="Deduc_Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Active_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Processed_User_ID" Type="Int32" />
+    <Property Name="Process_Flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payroll_Monthly_Salary_Process_Detail">
+    <Key>
+      <PropertyRef Name="ProcessTran_ID" />
+    </Key>
+    <Property Name="ProcessTran_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Process_Date" Type="DateTime" Precision="3" />
+    <Property Name="Employee_ID" Type="Int32" Nullable="false" />
+    <Property Name="Transaction_Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Deduction_ID" Type="Int32" Nullable="false" />
+    <Property Name="Allowance_ID" Type="Int32" Nullable="false" />
+    <Property Name="Trans_Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Processed_User_ID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Receipt">
+    <Key>
+      <PropertyRef Name="Receipt_ID" />
+    </Key>
+    <Property Name="Receipt_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Receipt_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Rec_Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Rec_Pay_Mode" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Rec_Amount" Type="Single" Nullable="false" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Active_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_User_ID" Type="Int32" />
+    <Property Name="Delete_Flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="Supplier_ID" />
+    </Key>
+    <Property Name="Supplier_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sup_Code" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Sup_Add_1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Sup_Add_2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Sup_Desc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Sup_Primary_Cont_Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Sup_Primary_Cont_Num" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Sup_Sec_Cont_Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Sup_Sec_Cont_Num" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Active_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_User_ID" Type="Int32" />
+    <Property Name="Delete_Flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Trans_Job_Assignment">
+    <Key>
+      <PropertyRef Name="Trans_Assignment_ID" />
+    </Key>
+    <Property Name="Trans_Assignment_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Assignment_Date" Type="DateTime" Precision="3" />
+    <Property Name="Cust_ID" Type="Int32" />
+    <Property Name="Vehicle_ID" Type="Int32" />
+    <Property Name="Driver_ID" Type="Int32" />
+    <Property Name="Cleaner_ID" Type="Int32" />
+    <Property Name="Start_Meter_R" Type="Int32" />
+    <Property Name="End_Meter_R" Type="Int32" />
+    <Property Name="Start_Date" Type="DateTime" Precision="3" />
+    <Property Name="End_Date" Type="DateTime" Precision="3" />
+    <Property Name="Free_Hours" Type="Single" />
+    <Property Name="Hire_Charge" Type="Single" />
+    <Property Name="Labour_Charge" Type="Single" />
+    <Property Name="Container_Charge" Type="Single" />
+    <Property Name="Active_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_User_ID" Type="Int32" />
+    <Property Name="Delete_Flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Month_lock" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="Payment_Made" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_User_ID" Type="Int32" />
+    <Property Name="Delete_Flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Active_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="Vehiclet_ID" />
+    </Key>
+    <Property Name="Vehiclet_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Vehicle_Display_Name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="YOM" Type="Int32" />
+    <Property Name="YOR" Type="Int32" />
+    <Property Name="Purchase_Value" Type="Single" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Created_Date" Type="DateTime" Precision="3" />
+    <Property Name="Active_Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+    <Property Name="Updated_User_ID" Type="Int32" />
+    <Property Name="Delete_Flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="TMS_NewEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Customer" EntityType="Self.Customer" />
+    <EntitySet Name="Department_Master" EntityType="Self.Department_Master" />
+    <EntitySet Name="Emp_Attendance" EntityType="Self.Emp_Attendance" />
+    <EntitySet Name="Emp_Extra_Work" EntityType="Self.Emp_Extra_Work" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" />
+    <EntitySet Name="Employee_Type" EntityType="Self.Employee_Type" />
+    <EntitySet Name="EmployeeTest" EntityType="Self.EmployeeTest" />
+    <EntitySet Name="Payment" EntityType="Self.Payment" />
+    <EntitySet Name="Payment_Catagory" EntityType="Self.Payment_Catagory" />
+    <EntitySet Name="Payment_Sub_Catagory" EntityType="Self.Payment_Sub_Catagory" />
+    <EntitySet Name="Payroll_Allowances_Master" EntityType="Self.Payroll_Allowances_Master" />
+    <EntitySet Name="Payroll_Deduction_Master" EntityType="Self.Payroll_Deduction_Master" />
+    <EntitySet Name="Payroll_Designation_Master" EntityType="Self.Payroll_Designation_Master" />
+    <EntitySet Name="Payroll_Emp_Type_Master" EntityType="Self.Payroll_Emp_Type_Master" />
+    <EntitySet Name="Payroll_Monthly_Allowances_Transaction" EntityType="Self.Payroll_Monthly_Allowances_Transaction" />
+    <EntitySet Name="Payroll_Monthly_Deduction_Transaction" EntityType="Self.Payroll_Monthly_Deduction_Transaction" />
+    <EntitySet Name="Payroll_Monthly_Salary_Process_Detail" EntityType="Self.Payroll_Monthly_Salary_Process_Detail" />
+    <EntitySet Name="Receipt" EntityType="Self.Receipt" />
+    <EntitySet Name="Supplier" EntityType="Self.Supplier" />
+    <EntitySet Name="Trans_Job_Assignment" EntityType="Self.Trans_Job_Assignment" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <EntitySet Name="Vehicle" EntityType="Self.Vehicle" />
+  </EntityContainer>
+</Schema>

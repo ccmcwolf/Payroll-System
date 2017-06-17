@@ -1,4 +1,4 @@
-namespace WpfApplication3
+namespace payroll
 {
     using System;
     using System.Collections.Generic;
@@ -12,7 +12,7 @@ namespace WpfApplication3
         public int Employee_ID { get; set; }
 
         public int? Employee_Type_ID { get; set; }
-        [Key]
+
         public DateTime? Atten_Date { get; set; }
 
         public DateTime? Processed_Date { get; set; }

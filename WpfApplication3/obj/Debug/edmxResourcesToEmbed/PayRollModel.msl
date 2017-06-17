@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TMS_NewModelStoreContainer" CdmEntityContainer="TMS_NewEntities">
+    <EntitySetMapping Name="Customer">
+      <EntityTypeMapping TypeName="TMS_NewModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Cust_ID" ColumnName="Cust_ID" />
+          <ScalarProperty Name="Cust_Code" ColumnName="Cust_Code" />
+          <ScalarProperty Name="Cust_Display_Name" ColumnName="Cust_Display_Name" />
+          <ScalarProperty Name="Cust_Add_1" ColumnName="Cust_Add_1" />
+          <ScalarProperty Name="Cust_Add_2" ColumnName="Cust_Add_2" />
+          <ScalarProperty Name="Cust_Desc" ColumnName="Cust_Desc" />
+          <ScalarProperty Name="Cust_Primary_Cont_Name" ColumnName="Cust_Primary_Cont_Name" />
+          <ScalarProperty Name="Cust_Primary_Cont_Num" ColumnName="Cust_Primary_Cont_Num" />
+          <ScalarProperty Name="Cust_Sec_Cont_Name" ColumnName="Cust_Sec_Cont_Name" />
+          <ScalarProperty Name="Cust_Sec_Cont_Num" ColumnName="Cust_Sec_Cont_Num" />
+          <ScalarProperty Name="Active_Status" ColumnName="Active_Status" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Updated_User_ID" ColumnName="Updated_User_ID" />
+          <ScalarProperty Name="Delete_Flag" ColumnName="Delete_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Department_Master">
+      <EntityTypeMapping TypeName="TMS_NewModel.Department_Master">
+        <MappingFragment StoreEntitySet="Department_Master">
+          <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
+          <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+          <ScalarProperty Name="Head_ID" ColumnName="Head_ID" />
+          <ScalarProperty Name="Active_Status" ColumnName="Active_Status" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Updated_User_ID" ColumnName="Updated_User_ID" />
+          <ScalarProperty Name="Delete_Flag" ColumnName="Delete_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Emp_Attendance">
+      <EntityTypeMapping TypeName="TMS_NewModel.Emp_Attendance">
+        <MappingFragment StoreEntitySet="Emp_Attendance">
+          <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+          <ScalarProperty Name="Employee_Type_ID" ColumnName="Employee_Type_ID" />
+          <ScalarProperty Name="Atten_Date" ColumnName="Atten_Date" />
+          <ScalarProperty Name="Processed_Date" ColumnName="Processed_Date" />
+          <ScalarProperty Name="Process_Status" ColumnName="Process_Status" />
+          <ScalarProperty Name="Active_Status" ColumnName="Active_Status" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Updated_User_ID" ColumnName="Updated_User_ID" />
+          <ScalarProperty Name="Delete_Flag" ColumnName="Delete_Flag" />
+          <ScalarProperty Name="Month_lock" ColumnName="Month_lock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Emp_Extra_Work">
+      <EntityTypeMapping TypeName="TMS_NewModel.Emp_Extra_Work">
+        <MappingFragment StoreEntitySet="Emp_Extra_Work">
+          <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+          <ScalarProperty Name="Employee_Type_ID" ColumnName="Employee_Type_ID" />
+          <ScalarProperty Name="Work_Date" ColumnName="Work_Date" />
+          <ScalarProperty Name="Work_Hours" ColumnName="Work_Hours" />
+          <ScalarProperty Name="Active_Status" ColumnName="Active_Status" />
+          <ScalarProperty Name="Process_Status" ColumnName="Process_Status" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Updated_User_ID" ColumnName="Updated_User_ID" />
+          <ScalarProperty Name="Delete_Flag" ColumnName="Delete_Flag" />
+          <ScalarProperty Name="Month_lock" ColumnName="Month_lock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee">
+      <EntityTypeMapping TypeName="TMS_NewModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+          <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+          <ScalarProperty Name="Second_Name" ColumnName="Second_Name" />
+          <ScalarProperty Name="Third_Name" ColumnName="Third_Name" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Join_Date" ColumnName="Join_Date" />
+          <ScalarProperty Name="NIC_Num" ColumnName="NIC_Num" />
+          <ScalarProperty Name="Contact_Home" ColumnName="Contact_Home" />
+          <ScalarProperty Name="Contact_Mobile" ColumnName="Contact_Mobile" />
+          <ScalarProperty Name="Contact_Other" ColumnName="Contact_Other" />
+          <ScalarProperty Name="Add_Home_1" ColumnName="Add_Home_1" />
+          <ScalarProperty Name="Add_Home_2" ColumnName="Add_Home_2" />
+          <ScalarProperty Name="Employee_Type_ID" ColumnName="Employee_Type_ID" />
+          <ScalarProperty Name="Employee_Type_Eff_Date" ColumnName="Employee_Type_Eff_Date" />
+          <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
+          <ScalarProperty Name="Department_Eff_Date" ColumnName="Department_Eff_Date" />
+          <ScalarProperty Name="Resigned_Date" ColumnName="Resigned_Date" />
+          <ScalarProperty Name="Active_Status" ColumnName="Active_Status" />
+          <ScalarProperty Name="BasicSalary" ColumnName="BasicSalary" />
+          <ScalarProperty Name="Incentive" ColumnName="Incentive" />
+          <ScalarProperty Name="Att_Allowance" ColumnName="Att_Allowance" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Updated_User_ID" ColumnName="Updated_User_ID" />
+          <ScalarProperty Name="Delete_Flag" ColumnName="Delete_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee_Type">
+      <EntityTypeMapping TypeName="TMS_NewModel.Employee_Type">
+        <MappingFragment StoreEntitySet="Employee_Type">
+          <ScalarProperty Name="Employee_Type_ID" ColumnName="Employee_Type_ID" />
+          <ScalarProperty Name="Employee_Type1" ColumnName="Employee_Type" />
+          <ScalarProperty Name="Active_Status" ColumnName="Active_Status" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Updated_User_ID" ColumnName="Updated_User_ID" />
+          <ScalarProperty Name="Delete_Flag" ColumnName="Delete_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeTest">
+      <EntityTypeMapping TypeName="TMS_NewModel.EmployeeTest">
+        <MappingFragment StoreEntitySet="EmployeeTest">
+          <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+          <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+          <ScalarProperty Name="Second_Name" ColumnName="Second_Name" />
+          <ScalarProperty Name="Third_Name" ColumnName="Third_Name" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Join_Date" ColumnName="Join_Date" />
+          <ScalarProperty Name="NIC_Num" ColumnName="NIC_Num" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payment">
+      <EntityTypeMapping TypeName="TMS_NewModel.Payment">
+        <MappingFragment StoreEntitySet="Payment">
+          <ScalarProperty Name="Payment_ID" ColumnName="Payment_ID" />
+          <ScalarProperty Name="Payment_Date" ColumnName="Payment_Date" />
+          <ScalarProperty Name="Pay_Description" ColumnName="Pay_Description" />
+          <ScalarProperty Name="Pay_Mode" ColumnName="Pay_Mode" />
+          <ScalarProperty Name="Pay_Cat_ID" ColumnName="Pay_Cat_ID" />
+          <ScalarProperty Name="Pay_Amount" ColumnName="Pay_Amount" />
+          <ScalarProperty Name="Pay_Authorised_By" ColumnName="Pay_Authorised_By" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Active_Status" ColumnName="Active_Status" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Updated_User_ID" ColumnName="Updated_User_ID" />
+          <ScalarProperty Name="Delete_Flag" ColumnName="Delete_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payment_Catagory">
+      <EntityTypeMapping TypeName="TMS_NewModel.Payment_Catagory">
+        <MappingFragment StoreEntitySet="Payment_Catagory">
+          <ScalarProperty Name="Pay_Cat_ID" ColumnName="Pay_Cat_ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Pay_Sub_Cat_ID" ColumnName="Pay_Sub_Cat_ID" />
+          <ScalarProperty Name="Active_Status" ColumnName="Active_Status" />
+          <ScalarProperty Name="Delete_Flag" ColumnName="Delete_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payment_Sub_Catagory">
+      <EntityTypeMapping TypeName="TMS_NewModel.Payment_Sub_Catagory">
+        <MappingFragment StoreEntitySet="Payment_Sub_Catagory">
+          <ScalarProperty Name="Pay_Sub_Cat_ID" ColumnName="Pay_Sub_Cat_ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Nature_Code" ColumnName="Nature_Code" />
+          <ScalarProperty Name="Active_Status" ColumnName="Active_Status" />
+          <ScalarProperty Name="Delete_Flag" ColumnName="Delete_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payroll_Allowances_Master">
+      <EntityTypeMapping TypeName="TMS_NewModel.Payroll_Allowances_Master">
+        <MappingFragment StoreEntitySet="Payroll_Allowances_Master">
+          <ScalarProperty Name="Allowance_ID" ColumnName="Allowance_ID" />
+          <ScalarProperty Name="Desription" ColumnName="Desription" />
+          <ScalarProperty Name="All_Amount" ColumnName="All_Amount" />
+          <ScalarProperty Name="Active_Status" ColumnName="Active_Status" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Updated_User_ID" ColumnName="Updated_User_ID" />
+          <ScalarProperty Name="Delete_Flag" ColumnName="Delete_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payroll_Deduction_Master">
+      <EntityTypeMapping TypeName="TMS_NewModel.Payroll_Deduction_Master">
+        <MappingFragment StoreEntitySet="Payroll_Deduction_Master">
+          <ScalarProperty Name="Deduction_ID" ColumnName="Deduction_ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Dedu_Amount" ColumnName="Dedu_Amount" />
+          <ScalarProperty Name="Active_Status" ColumnName="Active_Status" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Updated_User_ID" ColumnName="Updated_User_ID" />
+          <ScalarProperty Name="Delete_Flag" ColumnName="Delete_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payroll_Designation_Master">
+      <EntityTypeMapping TypeName="TMS_NewModel.Payroll_Designation_Master">
+        <MappingFragment StoreEntitySet="Payroll_Designation_Master">
+          <ScalarProperty Name="Designation_ID" ColumnName="Designation_ID" />
+          <ScalarProperty Name="Designation_Name" ColumnName="Designation_Name" />
+          <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
+          <ScalarProperty Name="Active_Status" ColumnName="Active_Status" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Updated_User_ID" ColumnName="Updated_User_ID" />
+          <ScalarProperty Name="Delete_Flag" ColumnName="Delete_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payroll_Emp_Type_Master">
+      <EntityTypeMapping TypeName="TMS_NewModel.Payroll_Emp_Type_Master">
+        <MappingFragment StoreEntitySet="Payroll_Emp_Type_Master">
+          <ScalarProperty Name="Employee_Type_ID" ColumnName="Employee_Type_ID" />
+          <ScalarProperty Name="Type_Name" ColumnName="Type_Name" />
+          <ScalarProperty Name="Active_Status" ColumnName="Active_Status" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Updated_User_ID" ColumnName="Updated_User_ID" />
+          <ScalarProperty Name="Delete_Flag" ColumnName="Delete_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payroll_Monthly_Allowances_Transaction">
+      <EntityTypeMapping TypeName="TMS_NewModel.Payroll_Monthly_Allowances_Transaction">
+        <MappingFragment StoreEntitySet="Payroll_Monthly_Allowances_Transaction">
+          <ScalarProperty Name="AllowanceTran_ID" ColumnName="AllowanceTran_ID" />
+          <ScalarProperty Name="Allowance_ID" ColumnName="Allowance_ID" />
+          <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+          <ScalarProperty Name="Tran_Date" ColumnName="Tran_Date" />
+          <ScalarProperty Name="All_Amount" ColumnName="All_Amount" />
+          <ScalarProperty Name="Active_Status" ColumnName="Active_Status" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Processed_User_ID" ColumnName="Processed_User_ID" />
+          <ScalarProperty Name="Delete_Flag" ColumnName="Delete_Flag" />
+          <ScalarProperty Name="Process_Flag" ColumnName="Process_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payroll_Monthly_Deduction_Transaction">
+      <EntityTypeMapping TypeName="TMS_NewModel.Payroll_Monthly_Deduction_Transaction">
+        <MappingFragment StoreEntitySet="Payroll_Monthly_Deduction_Transaction">
+          <ScalarProperty Name="DeductionTran_ID" ColumnName="DeductionTran_ID" />
+          <ScalarProperty Name="Deduction_ID" ColumnName="Deduction_ID" />
+          <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+          <ScalarProperty Name="Tran_Date" ColumnName="Tran_Date" />
+          <ScalarProperty Name="Deduc_Amount" ColumnName="Deduc_Amount" />
+          <ScalarProperty Name="Active_Status" ColumnName="Active_Status" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Processed_User_ID" ColumnName="Processed_User_ID" />
+          <ScalarProperty Name="Process_Flag" ColumnName="Process_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payroll_Monthly_Salary_Process_Detail">
+      <EntityTypeMapping TypeName="TMS_NewModel.Payroll_Monthly_Salary_Process_Detail">
+        <MappingFragment StoreEntitySet="Payroll_Monthly_Salary_Process_Detail">
+          <ScalarProperty Name="ProcessTran_ID" ColumnName="ProcessTran_ID" />
+          <ScalarProperty Name="Process_Date" ColumnName="Process_Date" />
+          <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+          <ScalarProperty Name="Transaction_Type" ColumnName="Transaction_Type" />
+          <ScalarProperty Name="Deduction_ID" ColumnName="Deduction_ID" />
+          <ScalarProperty Name="Allowance_ID" ColumnName="Allowance_ID" />
+          <ScalarProperty Name="Trans_Amount" ColumnName="Trans_Amount" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Processed_User_ID" ColumnName="Processed_User_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Receipt">
+      <EntityTypeMapping TypeName="TMS_NewModel.Receipt">
+        <MappingFragment StoreEntitySet="Receipt">
+          <ScalarProperty Name="Receipt_ID" ColumnName="Receipt_ID" />
+          <ScalarProperty Name="Receipt_Date" ColumnName="Receipt_Date" />
+          <ScalarProperty Name="Rec_Description" ColumnName="Rec_Description" />
+          <ScalarProperty Name="Rec_Pay_Mode" ColumnName="Rec_Pay_Mode" />
+          <ScalarProperty Name="Rec_Amount" ColumnName="Rec_Amount" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Active_Status" ColumnName="Active_Status" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Updated_User_ID" ColumnName="Updated_User_ID" />
+          <ScalarProperty Name="Delete_Flag" ColumnName="Delete_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplier">
+      <EntityTypeMapping TypeName="TMS_NewModel.Supplier">
+        <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="Supplier_ID" ColumnName="Supplier_ID" />
+          <ScalarProperty Name="Sup_Code" ColumnName="Sup_Code" />
+          <ScalarProperty Name="Sup_Add_1" ColumnName="Sup_Add_1" />
+          <ScalarProperty Name="Sup_Add_2" ColumnName="Sup_Add_2" />
+          <ScalarProperty Name="Sup_Desc" ColumnName="Sup_Desc" />
+          <ScalarProperty Name="Sup_Primary_Cont_Name" ColumnName="Sup_Primary_Cont_Name" />
+          <ScalarProperty Name="Sup_Primary_Cont_Num" ColumnName="Sup_Primary_Cont_Num" />
+          <ScalarProperty Name="Sup_Sec_Cont_Name" ColumnName="Sup_Sec_Cont_Name" />
+          <ScalarProperty Name="Sup_Sec_Cont_Num" ColumnName="Sup_Sec_Cont_Num" />
+          <ScalarProperty Name="Active_Status" ColumnName="Active_Status" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Updated_User_ID" ColumnName="Updated_User_ID" />
+          <ScalarProperty Name="Delete_Flag" ColumnName="Delete_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trans_Job_Assignment">
+      <EntityTypeMapping TypeName="TMS_NewModel.Trans_Job_Assignment">
+        <MappingFragment StoreEntitySet="Trans_Job_Assignment">
+          <ScalarProperty Name="Trans_Assignment_ID" ColumnName="Trans_Assignment_ID" />
+          <ScalarProperty Name="Assignment_Date" ColumnName="Assignment_Date" />
+          <ScalarProperty Name="Cust_ID" ColumnName="Cust_ID" />
+          <ScalarProperty Name="Vehicle_ID" ColumnName="Vehicle_ID" />
+          <ScalarProperty Name="Driver_ID" ColumnName="Driver_ID" />
+          <ScalarProperty Name="Cleaner_ID" ColumnName="Cleaner_ID" />
+          <ScalarProperty Name="Start_Meter_R" ColumnName="Start_Meter_R" />
+          <ScalarProperty Name="End_Meter_R" ColumnName="End_Meter_R" />
+          <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+          <ScalarProperty Name="End_Date" ColumnName="End_Date" />
+          <ScalarProperty Name="Free_Hours" ColumnName="Free_Hours" />
+          <ScalarProperty Name="Hire_Charge" ColumnName="Hire_Charge" />
+          <ScalarProperty Name="Labour_Charge" ColumnName="Labour_Charge" />
+          <ScalarProperty Name="Container_Charge" ColumnName="Container_Charge" />
+          <ScalarProperty Name="Active_Status" ColumnName="Active_Status" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Updated_User_ID" ColumnName="Updated_User_ID" />
+          <ScalarProperty Name="Delete_Flag" ColumnName="Delete_Flag" />
+          <ScalarProperty Name="Month_lock" ColumnName="Month_lock" />
+          <ScalarProperty Name="Payment_Made" ColumnName="Payment_Made" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="TMS_NewModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Updated_User_ID" ColumnName="Updated_User_ID" />
+          <ScalarProperty Name="Delete_Flag" ColumnName="Delete_Flag" />
+          <ScalarProperty Name="Active_Status" ColumnName="Active_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicle">
+      <EntityTypeMapping TypeName="TMS_NewModel.Vehicle">
+        <MappingFragment StoreEntitySet="Vehicle">
+          <ScalarProperty Name="Vehiclet_ID" ColumnName="Vehiclet_ID" />
+          <ScalarProperty Name="Vehicle_Display_Name" ColumnName="Vehicle_Display_Name" />
+          <ScalarProperty Name="YOM" ColumnName="YOM" />
+          <ScalarProperty Name="YOR" ColumnName="YOR" />
+          <ScalarProperty Name="Purchase_Value" ColumnName="Purchase_Value" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Active_Status" ColumnName="Active_Status" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Updated_User_ID" ColumnName="Updated_User_ID" />
+          <ScalarProperty Name="Delete_Flag" ColumnName="Delete_Flag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
